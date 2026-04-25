@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-sm text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -15,11 +15,23 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        // Editorial premium variants
+        oxblood:
+          "bg-oxblood text-bone hover:bg-oxblood-glow uppercase tracking-[0.18em] text-[12px] font-mono font-medium border border-oxblood",
+        carbon:
+          "bg-carbon text-bone hover:bg-graphite uppercase tracking-[0.18em] text-[12px] font-mono font-medium",
+        bone:
+          "bg-bone text-carbon hover:bg-bone-dim uppercase tracking-[0.18em] text-[12px] font-mono font-medium border border-carbon/15",
+        editorial:
+          "border border-carbon bg-transparent text-carbon hover:bg-carbon hover:text-bone uppercase tracking-[0.18em] text-[12px] font-mono font-medium",
+        editorialBone:
+          "border border-bone bg-transparent text-bone hover:bg-bone hover:text-carbon uppercase tracking-[0.18em] text-[12px] font-mono font-medium",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
+        default: "h-11 px-6 py-2",
+        sm: "h-9 rounded-sm px-4",
+        lg: "h-14 rounded-sm px-8",
+        xl: "h-16 rounded-sm px-10 text-[13px]",
         icon: "h-10 w-10",
       },
     },
