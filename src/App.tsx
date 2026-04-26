@@ -11,7 +11,12 @@ import BarberDemo from "./pages/demos/BarberDemo.tsx";
 import LocalDemo from "./pages/demos/LocalDemo.tsx";
 import MechanicDemo from "./pages/demos/MechanicDemo.tsx";
 import LegalDemo from "./pages/demos/LegalDemo.tsx";
-import ClinicDemo from "./pages/demos/ClinicDemo.tsx";
+import ClinicLayout from "./pages/demos/clinic/ClinicLayout.tsx";
+import ClinicHome from "./pages/demos/clinic/ClinicHome.tsx";
+import ClinicAbout from "./pages/demos/clinic/ClinicAbout.tsx";
+import ClinicServices from "./pages/demos/clinic/ClinicServices.tsx";
+import ClinicFaq from "./pages/demos/clinic/ClinicFaq.tsx";
+import ClinicDashboard from "./pages/demos/clinic/ClinicDashboard.tsx";
 
 const queryClient = new QueryClient();
 
@@ -29,7 +34,13 @@ const App = () => (
             <Route path="/demos/local" element={<LocalDemo />} />
             <Route path="/demos/taller-mecanico" element={<MechanicDemo />} />
             <Route path="/demos/gestoria-pro" element={<LegalDemo />} />
-            <Route path="/demos/clinica-vital" element={<ClinicDemo />} />
+            <Route path="/demos/clinica-vital" element={<ClinicLayout />}>
+              <Route index element={<ClinicHome />} />
+              <Route path="nosotros" element={<ClinicAbout />} />
+              <Route path="servicios" element={<ClinicServices />} />
+              <Route path="faq" element={<ClinicFaq />} />
+              <Route path="panel" element={<ClinicDashboard />} />
+            </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
