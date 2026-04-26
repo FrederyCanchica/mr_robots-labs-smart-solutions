@@ -19,7 +19,7 @@ const TattooDemo = () => {
       intro="Una web que filtra por estilo, muestra portfolio en formato editorial y agenda citas con depósito previo. Pensada para artistas que ya no dan abasto por DM."
       heroImg={tattoo}
     >
-      {/* <section className="container-editorial py-20 md:py-28 grid lg:grid-cols-12 gap-10">
+      <section className="container-editorial py-20 md:py-28 grid lg:grid-cols-12 gap-10">
         <div className="lg:col-span-7">
           <span className="label-eyebrow">Portfolio filtrable</span>
           <h2 className="font-display text-4xl md:text-5xl mt-4 mb-8">Encuentra tu artista por estilo.</h2>
@@ -92,7 +92,7 @@ const TattooDemo = () => {
             </div>
           </div>
         </aside>
-      </section> */}
+      </section>
     </DemoLayout>
   );
 };

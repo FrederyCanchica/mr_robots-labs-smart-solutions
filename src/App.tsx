@@ -9,6 +9,9 @@ import NotFound from "./pages/NotFound.tsx";
 import TattooDemo from "./pages/demos/TattooDemo.tsx";
 import BarberDemo from "./pages/demos/BarberDemo.tsx";
 import LocalDemo from "./pages/demos/LocalDemo.tsx";
+import MechanicDemo from "./pages/demos/MechanicDemo.tsx";
+import LegalDemo from "./pages/demos/LegalDemo.tsx";
+import ClinicDemo from "./pages/demos/ClinicDemo.tsx";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +27,9 @@ const App = () => (
             <Route path="/demos/tattoo" element={<TattooDemo />} />
             <Route path="/demos/barber" element={<BarberDemo />} />
             <Route path="/demos/local" element={<LocalDemo />} />
+            <Route path="/demos/taller-mecanico" element={<MechanicDemo />} />
+            <Route path="/demos/gestoria-pro" element={<LegalDemo />} />
+            <Route path="/demos/clinica-vital" element={<ClinicDemo />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
