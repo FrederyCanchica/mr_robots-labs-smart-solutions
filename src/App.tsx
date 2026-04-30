@@ -11,6 +11,9 @@ import BarberDemo from "./pages/demos/BarberDemo.tsx";
 import LocalDemo from "./pages/demos/LocalDemo.tsx";
 import MechanicDemo from "./pages/demos/MechanicDemo.tsx";
 import LegalDemo from "./pages/demos/LegalDemo.tsx";
+import RestaurantDemo from "./pages/demos/RestaurantDemo.tsx";
+import BeautyDemo from "./pages/demos/BeautyDemo.tsx";
+import LegalPardoDemo from "./pages/demos/LegalPardoDemo.tsx";
 import ClinicLayout from "./pages/demos/clinic/ClinicLayout.tsx";
 import ClinicHome from "./pages/demos/clinic/ClinicHome.tsx";
 import ClinicAbout from "./pages/demos/clinic/ClinicAbout.tsx";
@@ -34,6 +37,9 @@ const App = () => (
             <Route path="/demos/local" element={<LocalDemo />} />
             <Route path="/demos/taller-mecanico" element={<MechanicDemo />} />
             <Route path="/demos/gestoria-pro" element={<LegalDemo />} />
+            <Route path="/demos/restaurante-gourmet" element={<RestaurantDemo />} />
+            <Route path="/demos/centro-estetica" element={<BeautyDemo />} />
+            <Route path="/demos/despacho-legal" element={<LegalPardoDemo />} />
             <Route path="/demos/clinica-vital" element={<ClinicLayout />}>
               <Route index element={<ClinicHome />} />
               <Route path="nosotros" element={<ClinicAbout />} />
