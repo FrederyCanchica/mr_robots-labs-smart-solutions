@@ -147,7 +147,7 @@ export const Demos = () => {
           </h3>
           <p className="text-sm text-bone/70 leading-relaxed">{d.desc[lang]}</p>
         </div>
-        <div className="absolute top-1/2 right-4 -translate-y-1/2 h-9 w-9 flex items-center justify-center bg-oxblood text-bone opacity-0 group-hover:opacity-100 transition-opacity">
+        <div className="absolute top-1/2 right-4 -translate-y-1/2 h-9 w-9 rounded-full flex items-center justify-center bg-oxblood text-carbon opacity-0 group-hover:opacity-100 transition-opacity">
           <ArrowUpRight className="h-4 w-4" />
         </div>
       </Link>
