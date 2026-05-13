@@ -15,15 +15,15 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        // Editorial premium variants
+        // aXory variants
         oxblood:
-          "bg-oxblood text-bone hover:bg-oxblood-glow uppercase tracking-[0.18em] text-[12px] font-mono font-medium border border-oxblood",
+          "bg-oxblood text-carbon hover:bg-oxblood-glow uppercase tracking-[0.18em] text-[12px] font-mono font-medium",
         carbon:
           "bg-carbon text-bone hover:bg-graphite uppercase tracking-[0.18em] text-[12px] font-mono font-medium",
         bone:
           "bg-bone text-carbon hover:bg-bone-dim uppercase tracking-[0.18em] text-[12px] font-mono font-medium border border-carbon/15",
         editorial:
-          "border border-carbon bg-transparent text-carbon hover:bg-carbon hover:text-bone uppercase tracking-[0.18em] text-[12px] font-mono font-medium",
+          "border border-oxblood bg-transparent text-oxblood hover:bg-oxblood hover:text-carbon uppercase tracking-[0.18em] text-[12px] font-mono font-medium",
         editorialBone:
           "border border-bone bg-transparent text-bone hover:bg-bone hover:text-carbon uppercase tracking-[0.18em] text-[12px] font-mono font-medium",
       },
