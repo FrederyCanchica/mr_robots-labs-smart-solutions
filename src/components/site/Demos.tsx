@@ -134,7 +134,7 @@ export const Demos = () => {
           <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-bone/80 bg-carbon/60 backdrop-blur px-2 py-1 border border-bone/15">
             DEMO_0{i + 1}
           </span>
-          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-bone bg-oxblood/90 backdrop-blur px-2 py-1 border border-oxblood">
+          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-carbon bg-oxblood backdrop-blur px-2 py-1 rounded-sm">
             {d.pkg}
           </span>
         </div>
