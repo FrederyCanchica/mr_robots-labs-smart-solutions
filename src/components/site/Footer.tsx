@@ -4,14 +4,14 @@ import { siteConfig } from "@/lib/site-config";
 export const Footer = () => {
   const { t } = useI18n();
   return (
-    <footer className="bg-carbon text-bone border-t border-bone/10">
+    <footer className="bg-graphite text-bone-dim border-t border-bone/10">
       <div className="container-editorial py-14">
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-6">
-            <div className="font-mono text-[11px] uppercase tracking-[0.22em] mb-4">
-              MR_ROBOTS<span className="text-oxblood">/</span>LABS
+            <div className="font-display text-2xl text-bone mb-4">
+              a<span className="text-oxblood">X</span>ory
             </div>
-            <p className="font-display text-2xl md:text-3xl max-w-md leading-tight">
+            <p className="font-display text-2xl md:text-3xl max-w-md leading-tight text-bone">
               {t("footer.tagline")}
             </p>
           </div>
