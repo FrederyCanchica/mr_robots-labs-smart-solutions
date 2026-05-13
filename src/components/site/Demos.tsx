@@ -163,7 +163,7 @@ export const Demos = () => {
   );
 
   return (
-    <section id="demos" className="bg-carbon text-bone py-24 md:py-36 grain relative">
+    <section id="demos" className="bg-carbon text-bone py-24 md:py-36 relative">
       <div ref={ref} className="container-editorial reveal">
         <div className="grid lg:grid-cols-12 gap-10 items-end mb-16 md:mb-20">
           <div className="lg:col-span-8">
