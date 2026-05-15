@@ -3,6 +3,7 @@ import { useI18n } from "@/lib/i18n";
 import { useReveal } from "@/hooks/use-reveal";
 import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { BorderBeam } from "./BorderBeam";
 
 export const Pricing = () => {
   const { t, lang } = useI18n();
@@ -101,8 +102,8 @@ export const Pricing = () => {
             <div
               key={p.key}
               className={cn(
-                "relative p-8 md:p-10 flex flex-col",
-                p.featured ? "bg-carbon text-bone" : "bg-background text-foreground",
+                "reveal-item relative p-8 md:p-10 flex flex-col",
+                p.featured ? "glow-card bg-carbon text-bone" : "bg-background text-foreground",
               )}
             >
               {p.featured && (
@@ -144,9 +145,12 @@ export const Pricing = () => {
                 asChild
                 variant={p.featured ? "oxblood" : "editorial"}
                 size="lg"
-                className="w-full"
+                className={cn("w-full", p.featured && "has-beam")}
               >
-                <a href="#contact">{t("pricing.cta")}</a>
+                <a href="#contact">
+                  {p.featured && <BorderBeam />}
+                  {t("pricing.cta")}
+                </a>
               </Button>
             </div>
           ))}

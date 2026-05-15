@@ -116,10 +116,10 @@ export const Demos = () => {
   };
 
   const renderCard = (d: DemoItem, i: number) => (
-    <article key={d.slug} className="group flex flex-col">
+    <article key={d.slug} className="group flex flex-col reveal-item">
       <Link
         to={`/demos/${d.slug}`}
-        className="relative block aspect-[3/4] overflow-hidden rounded-xl border border-bone/10"
+        className="glow-card relative block aspect-[3/4] overflow-hidden rounded-xl"
       >
         <img
           src={d.img}
@@ -163,8 +163,8 @@ export const Demos = () => {
   );
 
   return (
-    <section id="demos" className="bg-carbon text-bone py-24 md:py-36 relative">
-      <div ref={ref} className="container-editorial reveal">
+    <section id="demos" className="glow-section noise-overlay bg-carbon text-bone py-24 md:py-36 relative">
+      <div ref={ref} className="container-editorial reveal-up">
         <div className="grid lg:grid-cols-12 gap-10 items-end mb-16 md:mb-20">
           <div className="lg:col-span-8">
             <div className="flex items-center gap-3 mb-6">

@@ -36,7 +36,7 @@ export const Value = () => {
           {items.map(({ Icon, k }, i) => (
             <div
               key={k}
-              className={`group relative p-8 md:p-10 border-b border-foreground/15 ${
+              className={`reveal-item group relative p-8 md:p-10 border-b border-foreground/15 ${
                 i < 3 ? "lg:border-r" : ""
               } ${i % 2 === 0 ? "sm:border-r lg:border-r" : ""} transition-colors duration-500 hover:bg-carbon hover:text-bone`}
             >

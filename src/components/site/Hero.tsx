@@ -1,14 +1,25 @@
+import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/lib/i18n";
 import { ArrowDownRight } from "lucide-react";
+import { useMagneticEffect } from "@/hooks/use-magnetic";
+import { BorderBeam } from "./BorderBeam";
 
 const HERO_IMG =
-  "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1600&q=85";
+  "https://images.unsplash.com/photo-1605379399642-870262d3d051?w=1600&q=85";
 
 export const Hero = () => {
   const { t } = useI18n();
+  const cta1Ref = useRef<HTMLAnchorElement>(null);
+  const cta2Ref = useRef<HTMLAnchorElement>(null);
+  useMagneticEffect(cta1Ref);
+  useMagneticEffect(cta2Ref, { strength: 0.25 });
+
+  const titleParts = t("hero.title").split(" ");
+  const accentIdx = titleParts.length - 2;
+
   return (
-    <section className="relative min-h-screen bg-carbon text-bone overflow-hidden pt-24">
+    <section className="glow-section noise-overlay relative min-h-screen bg-carbon text-bone overflow-hidden pt-24">
       {/* Radial depth: prussian blue glow center-left → black */}
       <div
         aria-hidden
@@ -39,8 +50,9 @@ export const Hero = () => {
         <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-bone/55 hidden md:inline">
           / 24/7 systems
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-oxblood">
-          ● Available
+        <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-oxblood inline-flex items-center gap-2">
+          <span className="rec-dot inline-block h-1.5 w-1.5 rounded-full bg-oxblood" />
+          Available
         </span>
       </div>
 
@@ -55,13 +67,15 @@ export const Hero = () => {
           </div>
 
           <h1 className="font-display text-[44px] sm:text-[64px] lg:text-[86px] xl:text-[104px] leading-[0.92] tracking-[-0.03em] text-balance text-bone">
-            {t("hero.title").split(" ").map((w, i, arr) =>
-              i === arr.length - 2 ? (
+            {titleParts.map((w, i) =>
+              i === accentIdx ? (
                 <span key={i} className="italic text-oxblood font-light">
                   {w}{" "}
                 </span>
               ) : (
-                <span key={i}>{w} </span>
+                <span key={i} className="text-shimmer">
+                  {w}{" "}
+                </span>
               ),
             )}
           </h1>
@@ -71,14 +85,17 @@ export const Hero = () => {
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
-            <Button asChild variant="oxblood" size="xl">
-              <a href="#solutions">
+            <Button asChild variant="oxblood" size="xl" className="has-beam">
+              <a ref={cta1Ref} href="#solutions">
+                <BorderBeam />
                 {t("hero.cta1")}
                 <ArrowDownRight className="ml-1" />
               </a>
             </Button>
             <Button asChild variant="editorialBone" size="xl">
-              <a href="#contact">{t("hero.cta2")}</a>
+              <a ref={cta2Ref} href="#contact">
+                {t("hero.cta2")}
+              </a>
             </Button>
           </div>
         </div>
@@ -89,12 +106,13 @@ export const Hero = () => {
             className="relative aspect-[4/5] lg:aspect-auto lg:h-full overflow-hidden"
             style={{
               borderRadius: 16,
-              boxShadow: "0 32px 80px rgba(252, 163, 17, 0.10)",
+              boxShadow:
+                "0 32px 80px rgba(252, 163, 17, 0.08), 0 0 0 1px rgba(252, 163, 17, 0.06)",
             }}
           >
             <img
               src={HERO_IMG}
-              alt="Workspace tech moderno con múltiples pantallas"
+              alt="Equipo de desarrollo en setup multi-monitor con luz ambiental azul"
               className="w-full h-full object-cover"
               loading="eager"
               fetchPriority="high"
@@ -102,6 +120,25 @@ export const Hero = () => {
               height={1200}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-carbon/40 via-transparent to-transparent" />
+
+            {/* Bottom label — FILE_001 */}
+            <div
+              className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-3 px-3 py-2 rounded-md"
+              style={{
+                background: "rgba(0,0,0,0.6)",
+                backdropFilter: "blur(8px)",
+                WebkitBackdropFilter: "blur(8px)",
+                border: "1px solid rgba(252, 163, 17, 0.12)",
+              }}
+            >
+              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-bone-dim">
+                FILE_001 · SYSTEM_OVERVIEW.JPG
+              </span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-bone-dim inline-flex items-center gap-2">
+                <span className="rec-dot inline-block h-1.5 w-1.5 rounded-full bg-oxblood" />
+                REC
+              </span>
+            </div>
           </div>
         </div>
       </div>

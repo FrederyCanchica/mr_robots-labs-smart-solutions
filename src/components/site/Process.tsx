@@ -21,7 +21,7 @@ export const Process = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 border-t border-foreground/15">
           {steps.map((s, i) => (
-            <div key={s} className={`relative p-8 md:p-10 border-b border-foreground/15 ${i < 3 ? "lg:border-r" : ""} ${i % 2 === 0 ? "md:border-r lg:border-r" : ""}`}>
+            <div key={s} className={`reveal-item relative p-8 md:p-10 border-b border-foreground/15 ${i < 3 ? "lg:border-r" : ""} ${i % 2 === 0 ? "md:border-r lg:border-r" : ""}`}>
               <div className="font-display text-7xl md:text-8xl text-oxblood mb-8 leading-none">
                 0{i + 1}
               </div>
