@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
+import { useMagneticEffect } from "@/hooks/use-magnetic";
+import { BorderBeam } from "./BorderBeam";
 
 export const Navbar = () => {
   const { t, lang, setLang } = useI18n();

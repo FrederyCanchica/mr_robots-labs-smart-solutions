@@ -12,8 +12,10 @@ import { FAQ } from "@/components/site/FAQ";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppFab } from "@/components/site/WhatsAppFab";
+import { useCursorGlow } from "@/hooks/use-cursor-glow";
 
 const Index = () => {
+  useCursorGlow();
   useEffect(() => {
     document.title = "aXory — Sistemas web que trabajan por ti";
     const desc =
