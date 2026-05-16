@@ -613,14 +613,14 @@
    Hero — blue prussian cursor glow (fixed layer, lerp follow)
 ============================================================ */
 .hero-cursor-glow {
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
   background: radial-gradient(
-    500px circle at var(--gx, 50%) var(--gy, 50%),
-    rgba(99, 149, 255, 0.18),
-    rgba(20, 33, 61, 0.08) 40%,
+    220px circle at var(--gx, 50%) var(--gy, 50%),
+    rgba(99, 149, 255, 0.22),
+    rgba(20, 33, 61, 0.10) 45%,
     transparent 70%
   );
   will-change: background;
