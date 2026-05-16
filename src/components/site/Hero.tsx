@@ -1,12 +1,9 @@
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/lib/i18n";
-import { ArrowDownRight } from "lucide-react";
+import { ArrowDownRight, Zap, Bot, CalendarDays } from "lucide-react";
 import { useMagneticEffect } from "@/hooks/use-magnetic";
 import { BorderBeam } from "./BorderBeam";
-
-const HERO_IMG =
-  "https://images.unsplash.com/photo-1605379399642-870262d3d051?w=1600&q=85";
 
 export const Hero = () => {
   const { t } = useI18n();
@@ -16,71 +13,58 @@ export const Hero = () => {
   useMagneticEffect(cta2Ref, { strength: 0.25 });
 
   const titleParts = t("hero.title").split(" ");
-  const accentIdx = titleParts.length - 2;
+  // Find "quieren" specifically; fallback to second-to-last word.
+  const accentIdx = (() => {
+    const i = titleParts.findIndex((w) => w.toLowerCase().replace(/[^a-záéíóúñ]/gi, "") === "quieren");
+    return i >= 0 ? i : titleParts.length - 2;
+  })();
 
   return (
-    <section className="glow-section noise-overlay relative min-h-screen bg-carbon text-bone overflow-hidden pt-24">
-      {/* Radial depth: prussian blue glow center-left → black */}
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(900px 700px at 28% 45%, hsl(var(--graphite) / 0.85), transparent 70%)",
-        }}
-      />
-      {/* Soft orange glow behind primary CTA */}
-      <div
-        aria-hidden
-        className="absolute pointer-events-none rounded-full blur-[120px]"
-        style={{
-          left: "8%",
-          top: "62%",
-          width: 380,
-          height: 380,
-          background: "hsl(var(--oxblood) / 0.06)",
-        }}
-      />
+    <section className="hero-typo noise-overlay relative min-h-screen bg-carbon text-bone overflow-hidden flex items-center pt-24 pb-32">
+      {/* Ambient orbs */}
+      <div aria-hidden className="hero-orb hero-orb-1" />
+      <div aria-hidden className="hero-orb hero-orb-2" />
 
-      {/* Top index bar */}
-      <div className="container-editorial relative z-10 flex items-center justify-between border-b border-bone/10 pb-4 mb-10 md:mb-16">
-        <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-bone/55">
-          — 001 / Studio
-        </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-bone/55 hidden md:inline">
-          / 24/7 systems
-        </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-oxblood inline-flex items-center gap-2">
-          <span className="rec-dot inline-block h-1.5 w-1.5 rounded-full bg-oxblood" />
-          Available
-        </span>
-      </div>
-
-      <div className="container-editorial relative z-10 grid lg:grid-cols-12 gap-10 pb-20">
-        {/* LEFT — text */}
-        <div className="lg:col-span-7 flex flex-col justify-center motion-safe:animate-fade-up">
-          <div className="flex items-center gap-3 mb-8">
-            <span className="block w-10 h-px bg-oxblood" />
-            <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-bone/60">
-              {t("hero.eyebrow")}
+      <div className="container-editorial relative z-10 grid lg:grid-cols-12 gap-10 w-full">
+        {/* LEFT */}
+        <div className="lg:col-span-7 flex flex-col justify-center">
+          {/* Status pill */}
+          <div className="mb-8">
+            <span className="hero-pill inline-flex items-center gap-2">
+              <span className="hero-pill-dot" />
+              <span className="font-mono text-[11px] tracking-[0.22em] uppercase">
+                Disponible para proyectos
+              </span>
             </span>
           </div>
 
-          <h1 className="font-display text-[44px] sm:text-[64px] lg:text-[86px] xl:text-[104px] leading-[0.92] tracking-[-0.03em] text-balance text-bone">
+          <h1
+            className="font-display text-balance text-bone"
+            style={{
+              fontSize: "clamp(52px, 7vw, 96px)",
+              lineHeight: 0.95,
+              letterSpacing: "-0.03em",
+            }}
+          >
             {titleParts.map((w, i) =>
               i === accentIdx ? (
-                <span key={i} className="italic text-oxblood font-light">
+                <span key={i} className="italic font-light hero-shimmer">
                   {w}{" "}
                 </span>
               ) : (
-                <span key={i} className="text-shimmer">
-                  {w}{" "}
-                </span>
+                <span key={i}>{w} </span>
               ),
             )}
           </h1>
 
-          <p className="mt-8 max-w-xl text-bone-dim text-base md:text-lg leading-relaxed text-balance">
+          <p
+            className="mt-8 text-base md:text-lg"
+            style={{
+              color: "#E5E5E5",
+              maxWidth: 520,
+              lineHeight: 1.6,
+            }}
+          >
             {t("hero.subtitle")}
           </p>
 
@@ -100,63 +84,61 @@ export const Hero = () => {
           </div>
         </div>
 
-        {/* RIGHT — image */}
-        <div className="lg:col-span-5 relative">
-          <div
-            className="relative aspect-[4/5] lg:aspect-auto lg:h-full overflow-hidden"
-            style={{
-              borderRadius: 16,
-              boxShadow:
-                "0 32px 80px rgba(252, 163, 17, 0.08), 0 0 0 1px rgba(252, 163, 17, 0.06)",
-            }}
-          >
-            <img
-              src={HERO_IMG}
-              alt="Equipo de desarrollo en setup multi-monitor con luz ambiental azul"
-              className="w-full h-full object-cover"
-              loading="eager"
-              fetchPriority="high"
-              width={1600}
-              height={1200}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-carbon/40 via-transparent to-transparent" />
-
-            {/* Bottom label — FILE_001 */}
-            <div
-              className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-3 px-3 py-2 rounded-md"
-              style={{
-                background: "rgba(0,0,0,0.6)",
-                backdropFilter: "blur(8px)",
-                WebkitBackdropFilter: "blur(8px)",
-                border: "1px solid rgba(252, 163, 17, 0.12)",
-              }}
+        {/* RIGHT — floating stat cards */}
+        <div className="lg:col-span-5 relative hidden md:block">
+          <div className="relative w-full h-full min-h-[480px]">
+            <article
+              className="hero-stat hero-stat-1"
+              style={{ top: "8%", right: "8%" }}
             >
-              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-bone-dim">
-                FILE_001 · SYSTEM_OVERVIEW.JPG
-              </span>
-              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-bone-dim inline-flex items-center gap-2">
-                <span className="rec-dot inline-block h-1.5 w-1.5 rounded-full bg-oxblood" />
-                REC
-              </span>
-            </div>
+              <div className="hero-stat-icon"><Zap size={18} /></div>
+              <div>
+                <div className="hero-stat-value">+38% conversión media</div>
+                <div className="hero-stat-meta">cliente: NitroFix</div>
+              </div>
+            </article>
+
+            <article
+              className="hero-stat hero-stat-2"
+              style={{ top: "42%", left: "0%" }}
+            >
+              <div className="hero-stat-icon"><Bot size={18} /></div>
+              <div>
+                <div className="hero-stat-value">IA respondió 847 consultas</div>
+                <div className="hero-stat-meta">este mes · VitalCenter</div>
+              </div>
+            </article>
+
+            <article
+              className="hero-stat hero-stat-3"
+              style={{ bottom: "6%", right: "4%" }}
+            >
+              <div className="hero-stat-icon"><CalendarDays size={18} /></div>
+              <div>
+                <div className="hero-stat-value">12h ahorradas/semana</div>
+                <div className="hero-stat-meta">en gestión · Legalis &amp; Co</div>
+              </div>
+            </article>
           </div>
         </div>
       </div>
 
-      {/* Metrics strip */}
-      <div className="container-editorial relative z-10 border-t border-bone/10">
-        <div className="grid grid-cols-3 gap-4 py-8">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="flex flex-col">
-              <span className="font-display text-3xl md:text-5xl text-bone">
-                {t(`hero.metric${i}.value`)}
-              </span>
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-bone/55 mt-2">
-                {t(`hero.metric${i}.label`)}
-              </span>
-            </div>
-          ))}
-        </div>
+      {/* Scroll indicator */}
+      <div
+        aria-hidden
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+      >
+        <span
+          className="font-mono uppercase"
+          style={{
+            fontSize: 10,
+            letterSpacing: "0.25em",
+            color: "rgba(229,229,229,0.4)",
+          }}
+        >
+          Scroll
+        </span>
+        <span className="hero-scroll-line" />
       </div>
     </section>
   );
