@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/lib/i18n";
 import { ArrowDownRight, Zap, Bot, CalendarDays } from "lucide-react";
@@ -9,8 +9,44 @@ export const Hero = () => {
   const { t } = useI18n();
   const cta1Ref = useRef<HTMLAnchorElement>(null);
   const cta2Ref = useRef<HTMLAnchorElement>(null);
+  const glowRef = useRef<HTMLDivElement>(null);
   useMagneticEffect(cta1Ref);
   useMagneticEffect(cta2Ref, { strength: 0.25 });
+
+  // Blue-prussian cursor glow with lerp follow (own RAF loop, fixed layer)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(hover: none)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const el = glowRef.current;
+    if (!el) return;
+
+    let targetX = window.innerWidth / 2;
+    let targetY = window.innerHeight / 2;
+    let curX = targetX;
+    let curY = targetY;
+    let raf = 0;
+
+    const onMove = (e: MouseEvent) => {
+      targetX = e.clientX;
+      targetY = e.clientY;
+    };
+
+    const tick = () => {
+      curX += (targetX - curX) * 0.08;
+      curY += (targetY - curY) * 0.08;
+      el.style.setProperty("--gx", `${curX}px`);
+      el.style.setProperty("--gy", `${curY}px`);
+      raf = requestAnimationFrame(tick);
+    };
+
+    window.addEventListener("mousemove", onMove, { passive: true });
+    raf = requestAnimationFrame(tick);
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
 
   const titleParts = t("hero.title").split(" ");
   // Find "quieren" specifically; fallback to second-to-last word.
@@ -24,6 +60,8 @@ export const Hero = () => {
       {/* Ambient orbs */}
       <div aria-hidden className="hero-orb hero-orb-1" />
       <div aria-hidden className="hero-orb hero-orb-2" />
+      {/* Blue cursor glow — fixed full-viewport layer, below content */}
+      <div ref={glowRef} aria-hidden className="hero-cursor-glow" />
 
       <div className="container-editorial relative z-10 grid lg:grid-cols-12 gap-10 w-full">
         {/* LEFT */}
