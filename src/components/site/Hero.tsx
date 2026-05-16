@@ -13,37 +13,48 @@ export const Hero = () => {
   useMagneticEffect(cta1Ref);
   useMagneticEffect(cta2Ref, { strength: 0.25 });
 
-  // Blue-prussian cursor glow with lerp follow (own RAF loop, fixed layer)
+  // Blue-prussian cursor glow with lerp follow (confined to hero, absolute layer)
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (window.matchMedia("(hover: none)").matches) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const el = glowRef.current;
-    if (!el) return;
+    const host = el?.parentElement as HTMLElement | null;
+    if (!el || !host) return;
 
-    let targetX = window.innerWidth / 2;
-    let targetY = window.innerHeight / 2;
+    let rect = host.getBoundingClientRect();
+    let targetX = rect.width / 2;
+    let targetY = rect.height / 2;
     let curX = targetX;
     let curY = targetY;
+    let inside = false;
     let raf = 0;
 
+    const updateRect = () => { rect = host.getBoundingClientRect(); };
     const onMove = (e: MouseEvent) => {
-      targetX = e.clientX;
-      targetY = e.clientY;
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      inside = x >= 0 && y >= 0 && x <= rect.width && y <= rect.height;
+      targetX = x;
+      targetY = y;
     };
-
     const tick = () => {
       curX += (targetX - curX) * 0.08;
       curY += (targetY - curY) * 0.08;
       el.style.setProperty("--gx", `${curX}px`);
       el.style.setProperty("--gy", `${curY}px`);
+      el.style.opacity = inside ? "1" : "0";
       raf = requestAnimationFrame(tick);
     };
 
     window.addEventListener("mousemove", onMove, { passive: true });
+    window.addEventListener("scroll", updateRect, { passive: true });
+    window.addEventListener("resize", updateRect);
     raf = requestAnimationFrame(tick);
     return () => {
       window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("scroll", updateRect);
+      window.removeEventListener("resize", updateRect);
       cancelAnimationFrame(raf);
     };
   }, []);
