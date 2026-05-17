@@ -227,7 +227,7 @@
   pointer-events: none;
   background: radial-gradient(
     900px circle at var(--cursor-x, -200px) var(--cursor-y, -200px),
-    rgba(252, 163, 17, 0.05),
+    #033E72,
     transparent 45%
   );
   transition: opacity 300ms ease;
@@ -451,16 +451,16 @@
   top: -10vw;
   left: -10vw;
   width: 60vw;
-  height: 60vw;
+  height: 50vw;
   background: rgba(20, 33, 61, 0.8);
-  animation: orb-float-1 8s ease-in-out infinite;
+  animation: orb-float-1 3s ease-in-out infinite;
 }
 .hero-orb-2 {
   bottom: -10vw;
   right: -10vw;
   width: 40vw;
   height: 40vw;
-  background: rgba(252, 163, 17, 0.06);
+  background: rgba(252, 162, 17, 0.956);
   animation: orb-float-2 12s ease-in-out infinite;
   animation-delay: -4s;
 }
@@ -508,31 +508,21 @@
 }
 
 /* Floating stat cards */
-.hero-stat {
+/* .hero-stat {
   position: absolute;
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 16px 20px;
-  border-radius: 12px;
   background: rgba(20, 33, 61, 0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(252, 163, 17, 0.15);
-  color: #E5E5E5;
-  opacity: 0;
-  transform: translateY(12px);
-  min-width: 240px;
-  box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  padding: 14px 18px;
+  max-width: 260px;
+  z-index: 10;
 }
 .hero-stat-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  background: rgba(252, 163, 17, 0.12);
   color: #FCA311;
   flex-shrink: 0;
 }
@@ -543,12 +533,12 @@
   line-height: 1.3;
 }
 .hero-stat-meta {
-  font-family: var(--font-mono);
+  font-family: var(--font-mono, monospace);
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: rgba(229, 229, 229, 0.55);
-  margin-top: 4px;
+  color: rgba(229, 229, 229, 0.5);
+  margin-top: 3px;
 }
 .hero-stat-1 {
   animation:
@@ -571,10 +561,10 @@
 @keyframes hero-stat-idle {
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-4px); }
-}
+} */
 
 /* Scroll indicator */
-.hero-scroll-line {
+/* .hero-scroll-line {
   display: block;
   width: 1px;
   height: 40px;
@@ -607,39 +597,63 @@
     transform: none;
   }
   .hero-scroll-line { animation: none; opacity: 0.4; }
-}
+} */
 
 /* ============================================================
-   Hero — blue prussian cursor glow (fixed layer, lerp follow)
+   Hero — mismo sistema que .glow-section
 ============================================================ */
-.hero-cursor-glow {
+.hero-glow-section {
+  position: relative;
+  isolation: isolate;
+}
+.hero-cursor-layer {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 0;
   pointer-events: none;
   background: radial-gradient(
-    220px circle at var(--gx, 50%) var(--gy, 50%),
-    rgba(99, 149, 255, 0.22),
-    rgba(20, 33, 61, 0.10) 45%,
-    transparent 70%
+    900px circle at var(--cursor-x, -200px) var(--cursor-y, -200px),
+    #033E72,
+    transparent 45%
   );
-  will-change: background;
 }
-/* Confine the fixed glow visually to the hero by clipping at its bounds */
-.hero-typo { isolation: isolate; }
 
-/* H1 hover — sutil halo azul al pasar el cursor sobre el título */
+
 .hero-title {
   transition: text-shadow 400ms ease;
 }
 .hero-title:hover {
-  text-shadow: 0 0 40px rgba(99, 149, 255, 0.4);
+  text-shadow: 0 0 60px rgba(3, 62, 114, 0.6),
+               0 0 20px rgba(99, 149, 255, 0.3);
 }
 
 @media (hover: none) {
-  .hero-cursor-glow { display: none; }
+  .hero-cursor-layer { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-cursor-glow { display: none; }
+  .hero-cursor-layer { display: none; }
   .hero-title:hover { text-shadow: none; }
+}
+
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+.hero-float-1 {
+  animation: hero-float 6s ease-in-out infinite;
+}
+.hero-float-2 {
+  animation: hero-float 8s ease-in-out infinite;
+  animation-delay: -2.5s;
+}
+.hero-float-3 {
+  animation: hero-float 7s ease-in-out infinite;
+  animation-delay: -4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-float-1,
+  .hero-float-2,
+  .hero-float-3 { animation: none; }
 }

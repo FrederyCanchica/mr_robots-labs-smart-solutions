@@ -13,7 +13,7 @@ const dict: Record<Lang, Dict> = {
     "nav.cta": "Solicitar asesoría",
 
     "hero.eyebrow": "Desarrollo Inteligente + automatización",
-    "hero.title": "Webs inteligentes y automatización para negocios que quieren crecer.",
+    "hero.title": "Construimos sistemas digitales para negocios que quieren crecer .",
     "hero.subtitle": "Desarrollo web, automatización y agentes IA para captar clientes y ahorrar tiempo. Construimos sistemas, no solo páginas.",
     "hero.cta1": "Ver soluciones",
     "hero.cta2": "Solicitar asesoría",
@@ -25,8 +25,8 @@ const dict: Record<Lang, Dict> = {
     "hero.metric3.label": "atención automatizada",
 
     "value.eyebrow": "Propuesta de valor",
-    "value.title": "No hacemos solo webs. Construimos sistemas para vender mientras duermes.",
-    "value.body": "Creamos sistemas inteligentes que trabajan por ti. Diseño, automatización e IA combinados para que tu negocio crezca sin que tu presencia sea el cuello de botella",
+    "value.title": "No hacemos solo webs ",
+    "value.body": "Construimos sistemas inteligentes para vender mientras duermes.",
     "value.p1.title": "Tu web, tu mejor comercial",
     "value.p1.body": "No solo una Pagina bonita: estructuras pensadas para que el usuario haga clic y se convierta en cliente.",
     "value.p2.title": "Dile adiós a las tareas repetitivas",

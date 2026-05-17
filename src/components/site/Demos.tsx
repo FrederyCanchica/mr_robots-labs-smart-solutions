@@ -167,10 +167,7 @@ export const Demos = () => {
       <div ref={ref} className="container-editorial reveal-up">
         <div className="grid lg:grid-cols-12 gap-10 items-end mb-16 md:mb-20">
           <div className="lg:col-span-8">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="block w-10 h-px bg-oxblood" />
-              <span className="label-eyebrow text-bone/60">— 003 / {t("demos.eyebrow")}</span>
-            </div>
+            
             <h2 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[0.95] text-balance">
               {t("demos.title")}
             </h2>

@@ -42,30 +42,30 @@ export const Testimonials = () => {
       ];
 
   return (
-    <section className="bg-carbon text-bone py-24 md:py-36 grain relative">
+    <section className="bg-background text-foreground py-24 md:py-36 relative">
       <div ref={ref} className="container-editorial reveal">
         <div className="mb-16 md:mb-20">
           <div className="flex items-center gap-3 mb-6">
             <span className="block w-10 h-px bg-oxblood" />
-            <span className="label-eyebrow text-bone/60">— 007 / {t("test.eyebrow")}</span>
+            <span className="label-eyebrow text-foreground/60">— 007 / {t("test.eyebrow")}</span>
           </div>
           <h2 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[0.95] max-w-4xl">
             {t("test.title")}
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-px bg-bone/10">
+        <div className="grid md:grid-cols-3 gap-px bg-foreground/10">
           {items.map((it, i) => (
-            <figure key={i} className="bg-carbon p-8 md:p-10 flex flex-col">
-              <span className="font-display text-6xl text-oxblood-glow leading-none mb-6">"</span>
-              <blockquote className="font-display text-xl md:text-2xl leading-snug text-bone/95 mb-8 flex-1">
+            <figure key={i} className="bg-background p-8 md:p-10 flex flex-col">
+              <span className="font-display text-6xl text-oxblood leading-none mb-6">"</span>
+              <blockquote className="font-display text-xl md:text-2xl leading-snug text-foreground/95 mb-8 flex-1">
                 {it.q}
               </blockquote>
-              <figcaption className="border-t border-bone/15 pt-4">
-                <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-bone">
+              <figcaption className="border-t border-foreground/15 pt-4">
+                <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-foreground">
                   {it.a}
                 </div>
-                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-bone/50 mt-1">
+                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-foreground/50 mt-1">
                   {it.r}
                 </div>
               </figcaption>
