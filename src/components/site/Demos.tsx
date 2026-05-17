@@ -136,9 +136,7 @@ export const Demos = () => {
           style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.7) 0%, transparent 100%)" }}
         />
         {/* Index tag */}
-        <span className="absolute top-4 right-4 font-mono text-[10px] uppercase tracking-[0.22em] text-bone/70">
-          DEMO_0{i + 1}
-        </span>
+       
         {/* Identity block top-left */}
         <div className="absolute top-4 left-4 right-4 flex flex-col gap-2">
           <h3 className="font-display text-2xl md:text-3xl leading-none text-bone">
