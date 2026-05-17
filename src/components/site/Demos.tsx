@@ -136,9 +136,9 @@ export const Demos = () => {
           style={{ background: "linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.3) 100%)" }}
         />
         {/* Index tag */}
-        <span className="absolute top-4 right-4 font-mono text-[10px] uppercase tracking-[0.22em] text-bone/70">
+        {/* <span className="absolute top-4 right-4 font-mono text-[10px] uppercase tracking-[0.22em] text-bone/70">
           DEMO_0{i + 1}
-        </span>
+        </span> */}
 
         {/* Hover reveal panel */}
         <div
