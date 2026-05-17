@@ -417,7 +417,6 @@
   background-size: 220px 220px;
 }
 .noise-overlay > * {
-  position: relative;
   z-index: 1;
 }
 

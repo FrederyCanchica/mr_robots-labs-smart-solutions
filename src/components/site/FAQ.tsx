@@ -29,10 +29,6 @@ export const FAQ = () => {
       <div ref={ref} className="container-editorial reveal">
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="block w-10 h-px bg-oxblood" />
-              <span className="label-eyebrow">— 009 / {t("faq.eyebrow")}</span>
-            </div>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[0.95]">
               {t("faq.title")}
             </h2>
@@ -49,7 +45,6 @@ export const FAQ = () => {
                   <AccordionTrigger className="py-6 text-left hover:no-underline group">
                     <span className="flex items-center gap-6">
                       <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-oxblood">
-                        0{i + 1}
                       </span>
                       <span className="font-display text-xl md:text-2xl leading-tight">
                         {it.q}

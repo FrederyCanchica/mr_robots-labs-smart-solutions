@@ -67,10 +67,6 @@ export const LeadMagnet = () => {
       <div ref={ref} className="container-editorial relative z-10 reveal">
         <div className="grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-6">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="block w-10 h-px bg-oxblood-glow" />
-              <span className="label-eyebrow text-bone/60">— 008 / {t("lead.eyebrow")}</span>
-            </div>
             <h2 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[0.95] mb-8 text-balance">
               {t("lead.title")}
             </h2>

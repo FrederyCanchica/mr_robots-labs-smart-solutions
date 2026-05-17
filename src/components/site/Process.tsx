@@ -10,10 +10,7 @@ export const Process = () => {
     <section id="process" className="glow-section noise-overlay bg-carbon text-bone py-24 md:py-36 relative">
       <div ref={ref} className="container-editorial reveal">
         <div className="mb-16 md:mb-20">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="block w-10 h-px bg-oxblood" />
-            <span className="label-eyebrow">— 006 / {t("process.eyebrow")}</span>
-          </div>
+          
           <h2 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[0.95] max-w-4xl">
             {t("process.title")}
           </h2>

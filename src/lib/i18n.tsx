@@ -97,7 +97,7 @@ const dict: Record<Lang, Dict> = {
 
     "contact.eyebrow": "Contacto",
     "contact.title": "Hablemos.",
-    "contact.body": "Tres formas de empezar. Elige la que más cómoda te resulte.",
+    "contact.body": "Atención los 365 dias del año. \nlas 24 horas al día",
     "contact.whatsapp": "Escribir por WhatsApp",
     "contact.calendar": "Agendar llamada",
     "contact.form": "Enviar mensaje",

@@ -35,11 +35,6 @@ export const Footer = () => {
             </ul>
           </div>
         </div>
-
-        <div className="mt-14 pt-6 border-t border-bone/10 flex flex-wrap items-center justify-between gap-4 font-mono text-[10px] uppercase tracking-[0.22em] text-bone-dim/55">
-          <span>© {new Date().getFullYear()} aXory — {t("footer.rights")}</span>
-          <span className="text-oxblood">● Madrid / Remote</span>
-        </div>
       </div>
     </footer>
   );
