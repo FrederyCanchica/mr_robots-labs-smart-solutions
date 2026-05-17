@@ -120,7 +120,7 @@ export const Demos = () => {
     <article key={d.slug} className="reveal-item">
       <Link
         to={`/demos/${d.slug}`}
-        className="glow-card group relative block aspect-[3/4] overflow-hidden rounded-[12px] border border-white/[0.08] hover:border-[rgba(252,163,17,0.25)] transition-colors duration-200"
+        className="demo-card group relative block aspect-[3/4] overflow-hidden rounded-[12px] border border-white/[0.08] hover:border-[rgba(252,163,17,0.25)] transition-colors duration-200"
       >
         <img
           src={d.img}
@@ -128,34 +128,51 @@ export const Demos = () => {
           loading="lazy"
           width={1200}
           height={1500}
-          className="w-full h-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.03]"
+          className="demo-card-img w-full h-full object-cover"
         />
-        {/* Top dark gradient for legibility */}
+        {/* Subtle bottom gradient for depth */}
         <div
-          className="absolute inset-x-0 top-0 h-1/2 pointer-events-none"
-          style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.7) 0%, transparent 100%)" }}
+          className="absolute inset-x-0 bottom-0 h-1/3 pointer-events-none"
+          style={{ background: "linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.3) 100%)" }}
         />
         {/* Index tag */}
         <span className="absolute top-4 right-4 font-mono text-[10px] uppercase tracking-[0.22em] text-bone/70">
           DEMO_0{i + 1}
         </span>
-        {/* Identity block top-left */}
-        <div className="absolute top-4 left-4 right-4 flex flex-col gap-2">
-          <h3 className="font-display text-2xl md:text-3xl leading-none text-bone">
-            {d.brand}
-          </h3>
-          <span className="self-start font-mono text-[10px] uppercase tracking-[0.22em] text-[#FCA311] border border-[#FCA311] bg-transparent px-2 py-1 rounded-sm">
-            {d.pkg}
-          </span>
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-bone/70">
-            {d.niche[lang]} · {d.pkg}
-          </p>
-        </div>
-        {/* Hover primary CTA */}
-        <div className="absolute inset-x-0 bottom-6 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <span className="font-mono text-[12px] uppercase tracking-[0.22em] bg-[#FCA311] text-black px-5 py-3 rounded-[4px]">
-            {lang === "es" ? "Ver demo →" : "View demo →"}
-          </span>
+
+        {/* Hover reveal panel */}
+        <div
+          className="demo-panel absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 px-5 py-4"
+          style={{ background: "rgba(0,0,0,0.85)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
+        >
+          <div className="min-w-0 flex-1">
+            <span
+              className="inline-block font-mono text-[9px] uppercase tracking-widest text-[#FCA311] border border-[#FCA311] px-2 py-[2px]"
+              style={{ borderRadius: 2 }}
+            >
+              {d.pkg}
+            </span>
+            <h3 className="font-display text-lg leading-tight text-white mt-1 truncate">
+              {d.brand}
+            </h3>
+            <p className="font-mono text-[10px] uppercase tracking-wider text-white/50 mt-[2px] truncate">
+              {d.desc[lang]}
+            </p>
+          </div>
+          <div className="flex flex-col gap-2 shrink-0">
+            <span
+              className="font-mono uppercase text-[10px] tracking-wider text-white border border-white/20 hover:border-white/60 transition-colors px-[14px] py-[6px] text-center"
+              style={{ borderRadius: 2 }}
+            >
+              {lang === "es" ? "Ver demo" : "View demo"}
+            </span>
+            <span
+              className="font-mono uppercase text-[10px] tracking-wider text-black bg-[#FCA311] px-[14px] py-[6px] text-center"
+              style={{ borderRadius: 2 }}
+            >
+              {lang === "es" ? "Lo quiero →" : "I want it →"}
+            </span>
+          </div>
         </div>
       </Link>
     </article>
