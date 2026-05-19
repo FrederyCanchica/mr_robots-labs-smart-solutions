@@ -26,8 +26,9 @@ export const Navbar = () => {
   const links = [
     { href: onHome ? "#solutions" : "/#solutions", label: t("nav.solutions") },
     { href: onHome ? "#demos" : "/#demos", label: t("nav.demos") },
-    { href: onHome ? "#pricing" : "/#pricing", label: t("nav.pricing") },
     { href: onHome ? "#process" : "/#process", label: t("nav.process") },
+    { href: onHome ? "#about" : "/#about", label: t("nav.about") },
+    { href: onHome ? "#pricing" : "/#pricing", label: t("nav.pricing") },
     { href: onHome ? "#contact" : "/#contact", label: t("nav.contact") },
   ];
 
