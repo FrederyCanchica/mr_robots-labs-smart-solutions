@@ -222,7 +222,40 @@ export const Contact = () => {
           +12 negocios activos · Respuesta media 47 min · 100% proyectos entregados
         </p>
 
+        <div className="text-center mt-2">
+          <span
+            className="font-mono text-[10px] uppercase tracking-wider inline-block"
+            style={{
+              color: "rgba(252,163,17,0.6)",
+              background: "rgba(252,163,17,0.05)",
+              border: "1px solid rgba(252,163,17,0.15)",
+              borderRadius: 4,
+              padding: "12px 20px",
+            }}
+          >
+            💬 Hace 6 días: Gestoría en Sevilla cerró su primer proyecto desde nuestra web → +4.200€ facturados
+          </span>
+        </div>
+
       </div>
+
+      <Dialog open={calendlyOpen} onOpenChange={setCalendlyOpen}>
+        <DialogContent className="max-w-4xl w-[95vw] p-0 overflow-hidden bg-background border-border">
+          <DialogTitle className="sr-only">Agenda una llamada</DialogTitle>
+          <button
+            onClick={() => setCalendlyOpen(false)}
+            className="absolute right-3 top-3 z-10 rounded-full bg-background/80 backdrop-blur p-2 hover:bg-background transition"
+            aria-label="Cerrar"
+          >
+            <X className="h-4 w-4" />
+          </button>
+          <iframe
+            src={CALENDLY_URL}
+            title="Calendly"
+            className="w-full h-[600px] md:h-[700px] border-0"
+          />
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
