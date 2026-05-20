@@ -142,8 +142,9 @@ export const Contact = () => {
             <a
               key={c.label}
               href={c.href}
-              target="_blank"
+              target={c.onClick ? undefined : "_blank"}
               rel="noreferrer"
+              onClick={c.onClick ? (e) => { e.preventDefault(); c.onClick!(); } : undefined}
               className="reveal-item group relative flex flex-col justify-between min-h-[280px] p-8 md:p-10 rounded-[4px] transition-all duration-300"
               style={{
                 border: c.primary
