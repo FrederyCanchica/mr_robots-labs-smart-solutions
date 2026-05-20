@@ -115,7 +115,7 @@ export const Contact = () => {
 
               <div className="mb-12 md:mb-16">
                 <h2 className="font-display text-5xl md:text-7xl lg:text-[120px] leading-[0.9] tracking-[-0.03em] mb-6">
-                  ¿Vamos a por más clientes?
+                  Agenda tu consulta gratuita esta semana
                 </h2>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 ml-1 md:ml-20">
                   <p className="text-bone/100 text-lg leading-relaxed">
