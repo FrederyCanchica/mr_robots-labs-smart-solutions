@@ -11,25 +11,29 @@ const CALENDLY_URL = "https://calendly.com/axory/consulta-30min";
 export const Contact = () => {
   const { t } = useI18n();
   const ref = useReveal<HTMLDivElement>();
+  const [calendlyOpen, setCalendlyOpen] = useState(false);
 
   const channels = [
     {
       Icon: MessageCircle,
       label: "Escríbenos ahora",
-      sub: "Respuesta en minutos · Sin formularios",
-      micro: "+34 600 000 000",
+      // NOTE: Actualizar manualmente cada semana el nº de huecos libres
+      sub: "Respuesta en minutos · Solo 3 huecos libres este mes",
+      micro: "🔥 ÚLTIMAS PLAZAS · +34 687 64 17 16",
       href: whatsappLink(),
       badge: "MÁS RÁPIDO",
       primary: true,
+      onClick: undefined as undefined | (() => void),
     },
     {
       Icon: Calendar,
       label: "Agenda una llamada",
       sub: "30 min · Gratuita · Sin ventas agresivas",
       micro: "Elige día y hora al instante",
-      href: siteConfig.calendarUrl,
+      href: "#",
       badge: null,
       primary: false,
+      onClick: () => setCalendlyOpen(true),
     },
     {
       Icon: Mail,
@@ -39,6 +43,7 @@ export const Contact = () => {
       href: `mailto:${siteConfig.email}`,
       badge: null,
       primary: false,
+      onClick: undefined,
     },
   ];
 
