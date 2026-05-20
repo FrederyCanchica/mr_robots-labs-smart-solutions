@@ -10,8 +10,7 @@ export const WhatsAppFab = () => (
     target="_blank"
     rel="noreferrer"
     aria-label="WhatsApp"
-    className="fixed right-5 md:right-8 z-40 group scale-[0.85] md:scale-100 origin-bottom-right"
-    style={{ bottom: "80px" }}
+    className="fixed right-5 md:right-8 bottom-[80px] md:bottom-[100px] z-40 group scale-[0.85] md:scale-100 origin-bottom-right"
   >
     <span
       className="absolute inset-0 rounded-full motion-safe:animate-ping opacity-50"
